@@ -3,11 +3,11 @@ import {
   ChevronUp,
   Close,
   Language,
+  LocationFilled,
   Logout,
   Notification,
   Search,
   UserAvatarFilledAlt,
-  LocationFilled,
 } from "@carbon/icons-react";
 import { Select, SelectItem } from "@carbon/react";
 import React, {
@@ -125,7 +125,7 @@ function OEHeader(props) {
         (response) => {
           console.log("Notification marked as read", response);
           getNotifications();
-        },
+        }
       );
     } catch (error) {
       console.error("Failed to mark notification as read", error);
@@ -140,7 +140,7 @@ function OEHeader(props) {
         (response) => {
           console.log("All Notifications marked as read", response);
           getNotifications();
-        },
+        }
       );
     } catch (error) {
       console.error("Failed to mark all notifications as read", error);
@@ -170,8 +170,8 @@ function OEHeader(props) {
       <>
         <picture>
           <img
-            className="logo"
-            src={`../images/openelis_logo.png`}
+            className="header-logo"
+            src={`../images/kapsiki-lab-logo.svg`}
             alt="logo"
           />
         </picture>
@@ -217,7 +217,7 @@ function OEHeader(props) {
                       childMenuItem,
                       index,
                       level + 1,
-                      path + ".childMenus[" + index + "]",
+                      path + ".childMenus[" + index + "]"
                     );
                   })}
                 </span>
@@ -272,7 +272,7 @@ function OEHeader(props) {
                     childMenuItem,
                     index,
                     level + 1,
-                    path + ".childMenus[" + index + "]",
+                    path + ".childMenus[" + index + "]"
                   )}
                 </span>
               );
@@ -586,7 +586,7 @@ function OEHeader(props) {
                                 childMenuItem,
                                 index,
                                 0,
-                                "$.menu[" + index + "]",
+                                "$.menu[" + index + "]"
                               );
                             }
                           })}
