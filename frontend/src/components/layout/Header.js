@@ -3,11 +3,11 @@ import {
   ChevronUp,
   Close,
   Language,
+  LocationFilled,
   Logout,
   Notification,
   Search,
   UserAvatarFilledAlt,
-  LocationFilled,
 } from "@carbon/icons-react";
 import { Select, SelectItem } from "@carbon/react";
 import React, {
@@ -170,8 +170,8 @@ function OEHeader(props) {
       <>
         <picture>
           <img
-            className="logo"
-            src={`../images/openelis_logo.png`}
+            className="header-logo"
+            src={`../images/kapsiki-lab-logo.svg`}
             alt="logo"
           />
         </picture>

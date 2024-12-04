@@ -1,25 +1,16 @@
-import React, { useContext, useEffect, useState, createRef } from "react";
-import config from "../config.json";
-import "./Style.css";
-import qs from "qs";
-import { FormattedMessage, injectIntl } from "react-intl";
 import { HardwareSecurityModule } from "@carbon/icons-react";
-import {
-  Form,
-  Section,
-  Heading,
-  FormLabel,
-  Grid,
-  Column,
-  TextInput,
-  Button,
-  Stack,
-  Loading,
-} from "@carbon/react";
+import { Button, Form, Loading, TextInput, Tile } from "@carbon/react";
 import { Formik } from "formik";
-import { AlertDialog, NotificationKinds } from "./common/CustomNotification";
+import qs from "qs";
+import React, { createRef, useContext, useEffect, useState } from "react";
+import { FormattedMessage, injectIntl } from "react-intl";
+import config from "../config.json";
 import UserSessionDetailsContext from "../UserSessionDetailsContext";
+import { AlertDialog, NotificationKinds } from "./common/CustomNotification";
+import KapsikiLogo from "./kapsiki-logo/kapsikiHeaderLogo.component";
+import ProductOfLogo from "./kapsiki-logo/ProductOfLogo.component";
 import { ConfigurationContext, NotificationContext } from "./layout/Layout";
+import "./login.css";
 
 function Login(props) {
   const { notificationVisible, addNotification, setNotificationVisible } =
@@ -152,119 +143,109 @@ function Login(props) {
 
   return (
     <>
-      <div className="loginPageContent">
+      <div className="loginPageContent form-container">
         {notificationVisible === true ? <AlertDialog /> : ""}
-        <Grid fullWidth={true}>
-          <Column lg={0} md={0} sm={4}>
-            {loginMessage()}
-          </Column>
-          <Column lg={4} md={4} sm={4}>
-            <Section>
-              <Formik
-                initialValues={{
-                  username: "",
-                  password: "",
-                }}
-                onSubmit={(values) => {
-                  fetch(config.serverBaseUrl + "/LoginPage", {
-                    //includes the browser sessionId in the Header for Authentication on the backend server
-                    credentials: "include",
-                    method: "GET",
-                  })
-                    .then((response) => response.status)
-                    .then(() => {
-                      doLogin(values);
-                    })
-                    .catch((error) => {
-                      console.error(error);
-                    });
-                }}
-              >
-                {({ isValid, handleChange, handleSubmit }) => (
-                  <Form onSubmit={handleSubmit} onChange={handleChange}>
-                    <Stack gap={5}>
-                      <FormLabel>
-                        <Heading>
-                          <FormattedMessage id="login.title" />
-                        </Heading>
-                      </FormLabel>
-                      {configurationProperties?.useFormLogin == "true" && (
-                        <>
-                          <TextInput
-                            id="loginName"
-                            invalidText={props.intl.formatMessage({
-                              id: "login.msg.username.missing",
-                            })}
-                            labelText={props.intl.formatMessage({
-                              id: "login.msg.username",
-                            })}
-                            hideLabel={true}
-                            placeholder={props.intl.formatMessage({
-                              id: "login.msg.username",
-                            })}
-                            autoComplete="off"
-                            ref={firstInput}
-                          />
-                          <TextInput.PasswordInput
-                            id="password"
-                            invalidText={props.intl.formatMessage({
-                              id: "login.msg.password.missing",
-                            })}
-                            labelText={props.intl.formatMessage({
-                              id: "login.msg.password",
-                            })}
-                            hideLabel={true}
-                            placeholder={props.intl.formatMessage({
-                              id: "login.msg.password",
-                            })}
-                          />
-                          <Button type="submit" disabled={!isValid}>
-                            <FormattedMessage id="label.button.login" />
-                            <Loading
-                              small={true}
-                              withOverlay={false}
-                              className={submitting ? "show" : "hidden"}
-                            />
-                          </Button>
-                        </>
-                      )}
-                      {configurationProperties?.useSaml == "true" && (
-                        <Button
-                          type="button"
-                          renderIcon={HardwareSecurityModule}
-                          onClick={() => {
-                            const POPUP_HEIGHT = 700;
-                            const POPUP_WIDTH = 600;
-                            const top =
-                              window.outerHeight / 2 +
-                              window.screenY -
-                              POPUP_HEIGHT / 2;
-                            const left =
-                              window.outerWidth / 2 +
-                              window.screenX -
-                              POPUP_WIDTH / 2;
-                            window.open(
-                              config.serverBaseUrl + "/LoginPage?useSAML=true",
-                              "SAML Popup",
-                              `height=${POPUP_HEIGHT},width=${POPUP_WIDTH},top=${top},left=${left}`,
-                            );
-                          }}
-                        >
-                          <FormattedMessage id="label.button.login.sso" />
-                        </Button>
-                      )}
-                      {configurationProperties?.useOauth == "true" &&
-                        renderOauthButtons()}
-                    </Stack>
-                  </Form>
+        <KapsikiLogo />
+        <Tile className="login-card">
+          <h1 className="login-card-title">Login</h1>
+          <Formik
+            initialValues={{
+              username: "",
+              password: "",
+            }}
+            onSubmit={(values) => {
+              fetch(config.serverBaseUrl + "/LoginPage", {
+                //includes the browser sessionId in the Header for Authentication on the backend server
+                credentials: "include",
+                method: "GET",
+              })
+                .then((response) => response.status)
+                .then(() => {
+                  doLogin(values);
+                })
+                .catch((error) => {
+                  console.error(error);
+                });
+            }}
+          >
+            {({ isValid, handleChange, handleSubmit }) => (
+              <Form onSubmit={handleSubmit} onChange={handleChange}>
+                <div className="input-group">
+                  <TextInput
+                    className="text-input"
+                    id="loginName"
+                    invalidText={props.intl.formatMessage({
+                      id: "login.msg.username.missing",
+                    })}
+                    labelText={props.intl.formatMessage({
+                      id: "login.msg.username",
+                    })}
+                    autoComplete="off"
+                    ref={firstInput}
+                  />
+                </div>
+                <div className="input-group">
+                  <TextInput.PasswordInput
+                    className="text-input"
+                    id="password"
+                    invalidText={props.intl.formatMessage({
+                      id: "login.msg.password.missing",
+                    })}
+                    labelText={props.intl.formatMessage({
+                      id: "login.msg.password",
+                    })}
+                  />
+                </div>
+                <div className="input-group">
+                  <button
+                    type="submit"
+                    disabled={!isValid}
+                    className="continueButton"
+                  >
+                    <FormattedMessage id="label.button.login" />
+                    <Loading
+                      small={true}
+                      withOverlay={false}
+                      className={submitting ? "show" : "hidden"}
+                    />
+                  </button>
+                </div>
+                {configurationProperties?.useSaml == "true" && (
+                  <Button
+                    type="button"
+                    renderIcon={HardwareSecurityModule}
+                    onClick={() => {
+                      const POPUP_HEIGHT = 700;
+                      const POPUP_WIDTH = 600;
+                      const top =
+                        window.outerHeight / 2 +
+                        window.screenY -
+                        POPUP_HEIGHT / 2;
+                      const left =
+                        window.outerWidth / 2 +
+                        window.screenX -
+                        POPUP_WIDTH / 2;
+                      window.open(
+                        config.serverBaseUrl + "/LoginPage?useSAML=true",
+                        "SAML Popup",
+                        `height=${POPUP_HEIGHT},width=${POPUP_WIDTH},top=${top},left=${left}`,
+                      );
+                    }}
+                  >
+                    <FormattedMessage id="label.button.login.sso" />
+                  </Button>
                 )}
-              </Formik>
-            </Section>
-          </Column>
-          <Column lg={8} md={4} sm={0}>
-            {loginMessage()}
-          </Column>
-        </Grid>
+                {configurationProperties?.useOauth == "true" &&
+                  renderOauthButtons()}
+              </Form>
+            )}
+          </Formik>
+        </Tile>
+        <div className="footer">
+          <div className="ProductOfLogo-container">
+            <ProductOfLogo />
+          </div>
+        </div>
       </div>
     </>
   );
