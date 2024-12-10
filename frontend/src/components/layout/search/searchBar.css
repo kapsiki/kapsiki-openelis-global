@@ -17,13 +17,27 @@
 .search-input {
   width: 100%;
   position: relative;
-  
 }
 
+.search-input > input {
+  border: 1px solid #587fc6!important;
+  border-radius: 5px;
+  background-color: #acc8fc;
+}
+
+.search-button {
+  background-color: #587fc6!important;
+  border-radius: 5px!important;
+}
+
+.search-input > input:focus {
+  border: none;
+}
+/*
 .search-bar-container:hover {
   border: 2px solid #110f74;
 }
-
+*/
 .patients {
   overflow-y: auto;
   width: 100%;

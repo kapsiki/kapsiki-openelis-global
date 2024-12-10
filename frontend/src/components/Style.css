@@ -1,6 +1,6 @@
 .logo {
-  height: 40px;
-  width: auto;
+  height: 100%;
+  width: 200px;
 }
 
 #header-logo {
@@ -9,6 +9,90 @@
 
 #mainHeader {
   z-index: 8001;
+  background-color: rgb(255, 255, 255);
+  border-bottom: 1px solid #587fc6;
+}
+
+.icon:not(:hover) {
+  fill: #587fc6!important;
+}
+
+button:has(svg.icon):hover {
+  background: #acc8fc!important;
+}
+
+.loginPageContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+  background-color: rgb(255, 255, 255);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .loginPageContent {
+padding: 2rem 1rem;
+}
+}
+
+/*
+.loginform-section {
+  border: 1px solid green;
+}
+*/
+
+.login-logo {
+  display: block;
+  margin: 1rem auto;
+  max-width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.loginForm {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 2.5rem !important;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+}
+.loginName, .loginPassword {
+  background-color: transparent!important;
+  margin-bottom: 1rem;
+}
+
+.loginButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #587fc6;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  height: 45px;
+  width: 100%;
+  color: #ffffff;
+}
+
+.productoflogo {
+  margin-top: 4rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.loginFormTitle {
+  text-align: center;
+  display: block;
+  color: gray;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 2.5rem;
 }
 
 .headerPanel {
@@ -136,6 +220,7 @@ button {
   margin-bottom: 3%;
   margin-left: 1%;
 }
+
 .section {
   border: 0.5px solid green;
   border-radius: 3px;
@@ -155,7 +240,7 @@ button {
   font-size: 10px;
 }
 
-.inlineDivBlock > div {
+.inlineDivBlock>div {
   display: inline-block;
   margin-right: 1rem;
 }
@@ -176,12 +261,14 @@ button {
   /* align-items: center; */
   justify-content: center;
 }
+
 .middleAlignVertical {
   height: 100%;
   display: flex;
   align-items: center;
   /* justify-content: center; */
 }
+
 .bottomAlign {
   height: 100%;
   display: flex;
@@ -246,6 +333,7 @@ button {
   margin-right: 5%;
   width: 100%;
 }
+
 .institute {
   margin-left: 5%;
   margin-right: 5%;
@@ -360,8 +448,10 @@ button {
 .requiredFieldIndicator {
   color: red;
 }
+
 .toastDisplay {
-  position: fixed; /*or fixed*/
+  position: fixed;
+  /*or fixed*/
   top: 47px;
   right: 0px;
   z-index: 10;
@@ -401,9 +491,11 @@ button {
 .first-row {
   max-width: 500px;
 }
+
 .searchResultsBtn {
   margin: 10px !important;
 }
+
 .advancedSearchResultsBtn {
   margin: 10px !important;
 }
@@ -488,16 +580,16 @@ button {
   background-color: var(--cds-background, #295785);
 }
 
-.reduced-padding-nav-menu-item > a.cds--side-nav__link {
+.reduced-padding-nav-menu-item>a.cds--side-nav__link {
   padding-left: 1rem !important;
 }
 
-.top-level-menu-item > a {
+.top-level-menu-item>a {
   pointer-events: auto !important;
   text-decoration: none !important;
 }
 
-.top-level-menu-item > a:hover {
+.top-level-menu-item>a:hover {
   background-color: var(--cds-background-hover, #072655);
 }
 
@@ -509,13 +601,16 @@ button {
   .banner h5 {
     font-size: 1.8vw;
   }
+
   .banner p {
     font-size: 1.4vw;
   }
+
   .formInlineDiv {
     grid-template-columns: 1fr;
   }
 }
+
 @media screen and (max-width: 550px) {
   .adminPageContent {
     margin-left: 15%;
@@ -527,6 +622,7 @@ button {
     flex-direction: column;
   }
 }
+
 @media screen and (max-width: 500px) {
   .adminPageContent {
     margin-left: 17%;
