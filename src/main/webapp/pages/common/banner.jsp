@@ -93,9 +93,9 @@ jQuery(document).ready(function() {
 
 <div id="header">
   	<div id="oe-logo" onclick="navigateToHomePage();">
-  		<img id="oe-logo-img" src="images/openelis_logo.png" title="OpenELIS" alt="OpenELIS" width="auto" height="71"/>
+  		<img id="oe-logo-img" src="images/kapsiki-lab-logo.png" title="Kapsiki" alt="Kapsiki" width="auto" height="71"/>
   	</div>
-	<div style="margin-left: 94px">
+	<div style="margin-left: 94px" id="header-tabs">
  		<div style="display: block">
 			<%
 				UserSessionData usd = null;
@@ -111,7 +111,7 @@ jQuery(document).ready(function() {
 			<div id="user-info" style="text-align: right;">
 			<form id="logout-form" method="post" action="${loginurl}">
 			<div><%=usd.getElisUserName()%> - 
-			<input type="submit" value="${localLogout}" class="btn-link"/>
+			<input type="submit" value="${localLogout}" class="btn-link" style="text-decoration: none;"/>
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/> 
 			</div></form>
 			<c:if test="${sessionScope.samlSession}">
@@ -135,7 +135,7 @@ jQuery(document).ready(function() {
 			<%
 				}
 			%>
-  	  		<div id="oe-title" onclick="navigateToHomePage();"><c:out value="${oeTitle}" /></div>
+  	  		<div id="oe-title" onclick="navigateToHomePage();">Kapsiki<c:out value="${oeTitle}" /></div>
   		</div>  
   		<div id="oe-version" style="display: block">
     		<div id="appVersion">
