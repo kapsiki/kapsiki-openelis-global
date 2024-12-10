@@ -344,6 +344,14 @@ a#menu_home:hover {
 	float: none;
 	color: #fff !important;
 }
+.nav-menu li a:hover {
+	float: none;
+	color: #fff !important;
+	background: #295785 !important;
+}
+.nav-menu li ul a {
+	background: #295785;
+}
 .nav-menu {
 	margin: 0;
 	float: none;

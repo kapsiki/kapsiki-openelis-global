@@ -1553,6 +1553,11 @@ th.highlight-header-rev {
 	float: none;
 	color: #fff !important;
 }
+.nav-menu li a:hover {
+	float: none;
+	color: #fff !important;
+	background: #295785 !important;
+}
 .nav-menu {
 	margin: 0;
 	float: none;
@@ -1569,6 +1574,10 @@ th.highlight-header-rev {
 body {
 	margin: 0;
 	padding: 0;
+	overflow-x: hidden;
+}
+* {
+	box-sizing: border-box;
 }
 #mainForm {
 	padding: 0 !important;
