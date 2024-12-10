@@ -107,6 +107,7 @@ const SearchBar = (props) => {
               style={{ width: 50 }}
               onClick={handleSearch}
               aria-label={intl.formatMessage({ id: "label.button.search" })}
+              className="search-button"
             >
               <FormattedMessage id="label.button.search" />
             </Button>

@@ -8,6 +8,7 @@ import {
   Search,
   UserAvatarFilledAlt,
   LocationFilled,
+  Menu,
 } from "@carbon/icons-react";
 import { Select, SelectItem } from "@carbon/react";
 import React, {
@@ -154,14 +155,14 @@ function OEHeader(props) {
   const panelSwitchIcon = () => {
     return userSessionDetails.authenticated ? (
       switchCollapsed ? (
-        <UserAvatarFilledAlt size={20} />
+        <UserAvatarFilledAlt size={20} className="avatar-icon icon"/>
       ) : (
-        <Close size={20} />
+        <Close size={20} className="close-icon icon"/>
       )
     ) : switchCollapsed ? (
-      <Language size={20} />
+      <Language size={20} className="language-icon icon"/>
     ) : (
-      <Close size={20} />
+      <Close size={20} className="close-icon icon"/>
     );
   };
 
@@ -171,7 +172,7 @@ function OEHeader(props) {
         <picture>
           <img
             className="logo"
-            src={`../images/openelis_logo.png`}
+            src={`../images/kapsiki-lab-logo.png`}
             alt="logo"
           />
         </picture>
@@ -433,10 +434,13 @@ function OEHeader(props) {
                       onClick={onClickSideNavExpand}
                       isActive={isSideNavExpanded}
                       isCollapsible={true}
+                      renderMenuIcon={<Menu size={20} className="menu-icon icon"/>}
+                      renderCloseIcon={<Close size={20} className="close-icon icon"/>}
                     />
                   )}
                   <HeaderName href="/" prefix="" style={{ padding: "0px" }}>
                     <span id="header-logo">{logo()}</span>
+                    {/*
                     <div className="banner">
                       <h5>{configurationProperties?.BANNER_TEXT}</h5>
                       <p>
@@ -444,6 +448,7 @@ function OEHeader(props) {
                         {configurationProperties?.releaseNumber}
                       </p>
                     </div>
+                    */}
                   </HeaderName>
                   <HeaderGlobalBar>
                     {userSessionDetails.authenticated && (
@@ -454,9 +459,9 @@ function OEHeader(props) {
                           onClick={handleSearch}
                         >
                           {!searchBar ? (
-                            <Search size={20} />
+                            <Search size={20} className="search-icon icon" />
                           ) : (
-                            <Close size={20} />
+                            <Close size={20} className="close-icon icon" />
                           )}
                         </HeaderGlobalAction>
                         <HeaderGlobalAction
@@ -469,7 +474,7 @@ function OEHeader(props) {
                               display: "inline-block",
                             }}
                           >
-                            <Notification size={20} />
+                            <Notification size={20} className="notification-icon icon" />
                             {unReadNotifications?.length > 0 && (
                               <span
                                 style={{
