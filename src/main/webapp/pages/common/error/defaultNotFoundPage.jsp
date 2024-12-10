@@ -61,7 +61,7 @@
 <body id="defaultErrorPage">
 
 <div id="header">
-    <div id="oe-logo"><img id="oe-logo-img" src="images/openelis_logo.png" title="OpenELIS" alt="OpenELIS"></div>
+    <div id="oe-logo"><img id="oe-logo-img" src="images/kapsiki-lab-logo.png" title="OpenELIS" alt="OpenELIS"></div>
     <div id="oe-title"><spring:message code="homePage.heading" text="homePage.heading"/></div>
 </div>
       

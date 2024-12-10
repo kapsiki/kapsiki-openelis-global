@@ -276,3 +276,96 @@ a:focus>.sf-sub-indicator, a:hover>.sf-sub-indicator, a:active>.sf-sub-indicator
 a#menu_home:hover {
 	background-size: auto auto;
 }
+
+
+/*
+*
+* Kapsiki styles
+*
+*/
+
+#header {
+	padding: 0 48px;
+	display: flex;
+	align-items: center;
+	height: 56px;
+	background: #f5f6f8;
+	box-sizing: border-box;
+	justify-content: space-between;
+	border-bottom: 1px solid #295785;
+}
+
+#oe-title {
+	display: none;
+}
+
+#oe-logo-img {
+	width: 150px;
+	height: auto;
+}
+
+#oe-logo {
+	margin: 0;
+	float: none;
+}
+
+#oe-logo ~ div {
+	display: none;
+}
+#oe-logo ~ div#header-tabs {
+	margin-left: 0 !important;
+	display: block;
+}
+#oe-logo ~ div#header-tabs #oe-version {
+	display: none !important;
+}
+#oe-logo ~ div#header-tabs #user-info {
+	text-align: left !important;
+	background: #295785;
+	color: #fff;
+	text-decoration: none;
+	display: inline-block;
+	padding: 8px 16px;
+	border-radius: 10px;
+	margin-top: 0px !important;
+	float: none;
+}
+
+.nav-menu li {
+	float: none;
+	background: #295785;
+}
+
+.nav-menu li.sfHover {
+	background: #295785 !important;
+}
+.nav-menu li a {
+	float: none;
+	color: #fff !important;
+}
+.nav-menu {
+	margin: 0;
+	float: none;
+	display: flex;
+	position: absolute;
+	left: 0;
+	top: 56px;
+	margin-top: 0 !important;
+	padding: 0;
+}
+#nav-first, #nav-first a {
+	border-radius: 0;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	background: #f5f6f8;
+}
+table {
+	background-color: #f5f6f8;
+}
+#mainForm {
+	padding: 0 !important;
+	padding-top: 40px !important;
+}
