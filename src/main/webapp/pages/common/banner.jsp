@@ -39,6 +39,9 @@ function /*void*/ setLanguage( language ){
 	}
 }
 
+document.addEventListener("DOMContentLoaded", (e) => {
+	document.title = "Kapsiki Lab System"
+})
 
 //Note this is hardcoded for haiti clinical.  Message resources would be a good way to get both language and context
 function displayHelp(){
@@ -93,9 +96,9 @@ jQuery(document).ready(function() {
 
 <div id="header">
   	<div id="oe-logo" onclick="navigateToHomePage();">
-  		<img id="oe-logo-img" src="images/openelis_logo.png" title="OpenELIS" alt="OpenELIS" width="auto" height="71"/>
+  		<img id="oe-logo-img" src="images/kapsiki-lab-logo.png" title="Kapsiki" alt="Kapsiki" width="auto" height="71"/>
   	</div>
-	<div style="margin-left: 94px">
+	<div style="margin-left: 94px" id="header-tabs">
  		<div style="display: block">
 			<%
 				UserSessionData usd = null;
@@ -135,7 +138,7 @@ jQuery(document).ready(function() {
 			<%
 				}
 			%>
-  	  		<div id="oe-title" onclick="navigateToHomePage();"><c:out value="${oeTitle}" /></div>
+  	  		<div id="oe-title" onclick="navigateToHomePage();">Kapsiki<c:out value="${oeTitle}" /></div>
   		</div>  
   		<div id="oe-version" style="display: block">
     		<div id="appVersion">
