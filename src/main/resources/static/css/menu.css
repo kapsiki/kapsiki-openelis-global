@@ -293,6 +293,7 @@ a#menu_home:hover {
 	box-sizing: border-box;
 	justify-content: space-between;
 	border-bottom: 1px solid #295785;
+	margin-bottom: 40px;
 }
 
 #oe-title {
@@ -367,5 +368,4 @@ table {
 }
 #mainForm {
 	padding: 0 !important;
-	padding-top: 40px !important;
 }
