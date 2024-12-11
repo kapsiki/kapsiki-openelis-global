@@ -170,7 +170,7 @@ if (document.layers) {
 %>
 
 <title>
-		<c:out value="${title}" />
+		Kapsiki Lab System
 </title>
 <jsp:include page="${bannerFragment}"/>
 <jsp:include page="${loginHeaderFragment}"/>

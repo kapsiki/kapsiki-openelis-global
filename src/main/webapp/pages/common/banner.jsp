@@ -39,6 +39,9 @@ function /*void*/ setLanguage( language ){
 	}
 }
 
+document.addEventListener("DOMContentLoaded", (e) => {
+	document.title = "Kapsiki Lab System"
+})
 
 //Note this is hardcoded for haiti clinical.  Message resources would be a good way to get both language and context
 function displayHelp(){
@@ -110,7 +113,7 @@ jQuery(document).ready(function() {
 			</c:if>
 			<div id="user-info" style="text-align: right;">
 			<form id="logout-form" method="post" action="${loginurl}">
-			<div>
+			<div><%=usd.getElisUserName()%> - 
 			<input type="submit" value="${localLogout}" class="btn-link"/>
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/> 
 			</div></form>
