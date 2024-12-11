@@ -110,8 +110,8 @@ jQuery(document).ready(function() {
 			</c:if>
 			<div id="user-info" style="text-align: right;">
 			<form id="logout-form" method="post" action="${loginurl}">
-			<div><%=usd.getElisUserName()%> - 
-			<input type="submit" value="${localLogout}" class="btn-link" style="text-decoration: none;"/>
+			<div>
+			<input type="submit" value="${localLogout}" class="btn-link"/>
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/> 
 			</div></form>
 			<c:if test="${sessionScope.samlSession}">
