@@ -58,6 +58,41 @@
         font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
         font-size: 12px;
     }
+        /*
+*
+* Kapsiki styles
+*
+*/
+
+#header {
+	padding: 0 48px;
+	display: flex;
+	align-items: center;
+	height: 56px;
+	background: #f5f6f8;
+	box-sizing: border-box;
+	justify-content: space-between;
+	border-bottom: 1px solid #295785;
+	margin-bottom: 40px;
+}
+
+#oe-title {
+	display: none;
+}
+
+#oe-logo-img {
+	width: 150px;
+	height: auto;
+}
+
+#oe-logo {
+	margin: 0;
+	float: none;
+}
+
+#oe-logo ~ div {
+	display: none;
+}
     </style>
 </head>
   
