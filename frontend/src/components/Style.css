@@ -25,7 +25,7 @@ button:has(svg.icon):hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  min-height: 90vh;
   overflow: hidden;
   background-color: rgb(255, 255, 255);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -44,12 +44,14 @@ padding: 2rem 1rem;
 }
 */
 
+.logo-container {
+  text-align: center;
+}
+
 .login-logo {
-  display: block;
-  margin: 1rem auto;
-  max-width: 50%;
-  margin-left: auto;
-  margin-right: auto;
+  margin-bottom: 1rem;
+  height: 5rem;
+  max-width: 16rem;
 }
 
 .loginForm {
@@ -60,9 +62,10 @@ padding: 2rem 1rem;
   border: 1px solid #e0e0e0;
   border-radius: 5px;
 }
-.loginName, .loginPassword {
-  background-color: transparent!important;
-  margin-bottom: 1rem;
+#loginName,#password {
+  background-color: #f2f2f2;
+  margin-bottom: .5rem;
+  border-radius: 5px;
 }
 
 .loginButton {
@@ -77,10 +80,11 @@ padding: 2rem 1rem;
   height: 45px;
   width: 100%;
   color: #ffffff;
+  margin-top: 1rem;
 }
 
 .productoflogo {
-  margin-top: 4rem;
+  margin-top: 6.75rem;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -89,8 +93,8 @@ padding: 2rem 1rem;
 .loginFormTitle {
   text-align: center;
   display: block;
-  color: gray;
-  font-size: 1.5rem;
+  color: #a0a0a1;
+  font-size: 1.5em;
   font-weight: bold;
   margin-bottom: 2.5rem;
 }
