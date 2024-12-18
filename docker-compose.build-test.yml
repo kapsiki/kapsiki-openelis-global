@@ -10,7 +10,7 @@ services:
     container_name: kapsiki-openelis-backend
     build:
       context: .
-    image: kapsiki-openelis-backend
+    image: kapsiki/kapsiki-openelis-backend
   
 
   fhir.openelis.org:
@@ -18,18 +18,18 @@ services:
     build:
       context: ./fhir
       dockerfile: ./Dockerfile
-    image: kapsiki-openelis-fhir-api
+    image: kapsiki/kapsiki-openelis-fhir-api
       
   frontend.openelis.org:
     container_name: kapsiki-openelis-frontend
     build:
       context: ./frontend
       dockerfile: ./Dockerfile
-    image: kapsiki-openelis-frontend
+    image: kapsiki/kapsiki-openelis-frontend
 
   proxy:
     container_name: kapsiki-openelis-proxy 
     build:
       context: ./nginx-proxy
       dockerfile: ./Dockerfile
-    image: kapsiki-openelis-proxy
+    image: kapsiki/kapsiki-openelis-proxy
