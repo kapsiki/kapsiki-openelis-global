@@ -76,7 +76,7 @@ services:
     build:
       context: ./fhir
       dockerfile: ./Dockerfile
-      image: kapsiki-openelis-fhir-api
+    image: kapsiki-openelis-fhir-api
     depends_on:
       - database
       - certs
