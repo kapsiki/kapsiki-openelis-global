@@ -24,7 +24,6 @@ services:
     container_name: kapsiki-openelis-frontend
     build:
       context: ./frontend
-      dockerfile: ./frontend/Dockerfile.prod
       dockerfile: ./Dockerfile.prod
     image: kapsiki/kapsiki-openelis-frontend
 
