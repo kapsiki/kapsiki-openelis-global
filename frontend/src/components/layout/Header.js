@@ -172,7 +172,7 @@ function OEHeader(props) {
         <picture>
           <img
             className="logo"
-            src={`../images/kapsiki-lab-logo.png`}
+            src={`../images/kapsiki-lab-logo.svg`}
             alt="logo"
           />
         </picture>

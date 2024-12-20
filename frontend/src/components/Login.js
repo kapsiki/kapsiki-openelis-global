@@ -153,13 +153,13 @@ function Login(props) {
   const logo = () => {
     return (
       <>
-        <picture>
+        <div className="logo-container">
           <img
             className="login-logo"
-            src={`../images/kapsiki-lab-logo.png`}
+            src={`../images/kapsiki-lab-logo.svg`}
             alt="logo"
           />
-        </picture>
+        </div>
       </>
     );
   };
