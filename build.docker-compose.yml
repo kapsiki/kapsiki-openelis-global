@@ -1,4 +1,5 @@
-version: '3.3'
+version: '3.7'
+
 services:
   certs:
     container_name: oe-certs
@@ -10,15 +11,13 @@ services:
     environment:
       - KEYSTORE_PW="kspass"
       - TRUSTSTORE_PW="tspass"
-    networks:
-      - default
     volumes:
       - key_trust-store-volume:/etc/openelis-global
       - keys-vol:/etc/ssl/private/
       - certs-vol:/etc/ssl/certs/
 
   database:
-      container_name: openelisglobal-database 
+      container_name: kapsiki-openelis-database 
       image: postgres:14.4
       ports:
           - "15432:5432"
@@ -30,8 +29,6 @@ services:
           - db-data:/var/lib/postgresql/data                
               # files here will run on install
           - ./volume/database/dbInit:/docker-entrypoint-initdb.d
-      networks:
-          - default
       healthcheck:
             test: [ "CMD", "pg_isready", "-q", "-d", "clinlims", "-U", "clinlims" ]
             timeout: 45s
@@ -41,8 +38,8 @@ services:
   oe.openelis.org:
     build:
       context: .
-    container_name: openelisglobal-webapp
-    image: openelisglobal-webapp.build
+    container_name: kapsiki-openelis-backend
+    image: kapsiki/kapsiki-openelis-backend.build
     depends_on:
       - database
       - certs
@@ -50,9 +47,6 @@ services:
       - "8080:8080"
       - "8443:8443"
     restart: always
-    networks:
-      default:
-        ipv4_address: 172.20.1.121
     environment:
       - DEFAULT_PW=adminADMIN!
       - TZ=Africa/Nairobi
@@ -74,7 +68,8 @@ services:
       start_period: 2m
 
   fhir.openelis.org:
-    container_name: external-fhir-api
+    container_name: kapsiki-openelis-fhir
+    image: kapsiki/kapsiki-openelis-fhir.build
     build:
       context: ./fhir
       dockerfile: ./Dockerfile
@@ -84,8 +79,6 @@ services:
     ports:
       - "8081:8080"
       - "8444:8443"
-    networks:
-      - default
     restart: always
     environment:
       SPRING_CONFIG_LOCATION: file:///run/secrets/hapi_application.yaml
@@ -104,15 +97,13 @@ services:
       - source: hapi_application.yaml 
       
   frontend.openelis.org:
-    image: frontend
+    image: kapsiki/kapsiki-openelis-frontend.build
     build:
       context: ./frontend
       dockerfile: ./Dockerfile
-    container_name: openelisglobal-front-end  
+    container_name: kapsiki-openelis-frontend  
     # ports:
     #   - 3000:3000
-    networks:
-      - default
     volumes:
       - './frontend/src:/app/src'
       - './frontend/public:/app/public'
@@ -125,7 +116,8 @@ services:
     build:
       context: ./nginx-proxy
       dockerfile: ./Dockerfile
-    container_name: openelisglobal-proxy
+    container_name: kapsiki-openelis-proxy
+    image: kapsiki/kapsiki-openelis-proxy.build
     ports:
       - 80:80
       - 443:443
@@ -133,8 +125,6 @@ services:
       - certs-vol:/etc/nginx/certs/
       - keys-vol:/etc/nginx/keys/
       - ./volume/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
-    networks:
-      - default  
     restart: unless-stopped
     depends_on:
       - certs
@@ -146,13 +136,6 @@ secrets:
     file:  ./volume/properties/common.properties
   hapi_application.yaml:
     file: ./volume/properties/hapi_application.yaml 
-
-networks:
-  default:
-    driver: bridge
-    ipam:
-      config:
-        - subnet: 172.20.1.0/24
 
 volumes:
   db-data:
