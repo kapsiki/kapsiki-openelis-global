@@ -12,7 +12,7 @@ RUN --mount=target=/var/lib/apt/lists,type=cache,sharing=locked \
 
 
 # OE Default Password
-ARG DEFAULT_PW="adminADMIN!"
+ARG DEFAULT_PW="Admin123!"
 COPY ./install/createDefaultPassword.sh /build/install/createDefaultPassword.sh
 WORKDIR /build
 RUN ./install/createDefaultPassword.sh -c -p ${DEFAULT_PW}
